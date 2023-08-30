@@ -2,7 +2,7 @@
 theme: mattropolis
 ---
 
-## Text classification and annotation with large language models 
+## Language models as research tools: Potentials and challenges 
 
 
 Methods festival 2023
@@ -17,7 +17,6 @@ Slides available at http://knuutila.net/methodfest2023
 - Postdoc researcher in Helsinki and Jyväskylä
 - Working on information environment in Ukraine, hate speech in Finland
 - Interested in critical and creative use of machine learning in social sciences
-- Slides available at: XXX
 
 <!--
 - Will give this talk from a kind of "computational social science" POV
@@ -27,27 +26,12 @@ Slides available at http://knuutila.net/methodfest2023
 
 ---
 
-## Plan for 2 sessions
-
-- 05.09.2023 12.00 - 14.00: Introduction into LLM analysis and notebook environment for practical exercise
-
-- 07.09.2023 12.00 - 14.00: Practical exercises with text data and group feedback
-
----
-
 ## Structure of presentation in first session
 
 1. What are LLMs
-2. Different workflows with LLMs: Supervised categorisation and zero-shot annotation
-3. Evaluating results
-4. Introducing the CSC notebook environment
-
----
-
-## Learning goals for sessions
-
-- Understand what LLMs do and whether they will be useful for your research
-- Some basic techniques and experience for text classification and text annotation with LLMs
+2. Challenge: Finding and validating analytical concepts
+3. Examples of my own research and novel uses of LLMs
+4. Potential for new research workflows?
 
 ---
 
@@ -68,16 +52,6 @@ Llama, open source, though designation is controversial
 
 ---
 
-## What are LLMs? Some analogies
-
-- Emily Bender et al.: Stochastic parrots
-- Ted Chiang: "ChatGPT is a Blurry JPEG of the Web"
-- Simon Willison: "Calculators for words"
-
-Sources: Bender et al. "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big", Ted Chiang in [New Yorker](https://www.newyorker.com/tech/annals-of-technology/chatgpt-is-a-blurry-jpeg-of-the-web), [Simon Willison](https://simonwillison.net/2023/Apr/2/calculator-for-words/)
-
----
-
 ## What are LLMs? A definition
 
 ![[Pasted image 20230825094408.png]]
@@ -89,82 +63,47 @@ Sources: Bender et al. "On the Dangers of Stochastic Parrots: Can Language Model
 
 Source: Luccioni, Alexandra Sasha, and Anna Rogers. “Mind Your Language (Model): Fact-Checking LLMs and Their Role in NLP Research and Practice.”
 
----
-
-## How LLMs can help social scientists
-
-- Writing assistants
-- Preprocessing datasets, eg. by summarising or generating keywords
-- Creation of synthetic datasets for piloting research or preserving privacy
-- Categorising text or extracting particular features from it
-
-Source: Ziems, Caleb et al. "Can Large Language Models Transform Computational Social Science?"
-
----
-
-## Validating analysis requires people
-
-- Core challenge for analysis is finding analytical concepts that
-1. Provide analytical value, i.e. reveal something insightful about data
-2. Are clear enough so that multiple people will agree on them
-3. Can be operationalised so that models such as LLMs can apply them
-
-- Agreement between people is proxy for validity of concepts - for some research, codebook verified before modelling
-- Finding right concepts may require many attempts, and LLMs may make iterative process easier
-
----
-
-## Typical workflow for modelling work
-
-![[Pasted image 20230824122151.png]]
-
-Typical workflow: 
-- You train your own model
-- ..with an architecture specific to the problem
-- ..and exclusively on your own data
-
 <!--
-So this is 
-How exactly do LLMs fit into a typical research process?
-
-Notable:
-https://www.researchgate.net/figure/A-four-step-predictive-modeling-workflow-1-Data-preparation-includes-cleaning-and_fig2_342520450
-- You train your own model
-- Feature extraction and model architecture are bespoke for your problem
-- Feature extraction: bag of words, word vectors
-- Models: regression, naive bayes
--->
-
----
-
-## Potential changes in workflows with LLMs
-
-
-![[Pasted image 20230823151209.png]]
-
 - LLMs are "Swiss army knives": Single models can be applied for many different tasks
 - Transfer learning: Models trained on large corpora can be applied in other domains
-
-<!--
-- Sometimes SOTA, sometimes specific models 
-- Swiss-army knives like bundling
-- General tool, simplifies the process of model selection
-- Though there are several LLMs too! And computationally intensive, so it's like a tradeoff
 -->
 
 ---
 
-|                       | Training your own model                                               | Supervised text categorisation with LLMs | Zero/Few-shot annotation with LLMs                |   |
-|-----------------------|-----------------------------------------------------------------------|-------------------------------------|---------------------------------------------------|---|
-| **Models used**       | Model chosen for task                                                 | LLM of choice                       | Typically LLM that can be prompted with instructions                                     |   |
-| **Preparing model**   | Training model on your own dataset                                    | Finetuning existing LLM             | Preparing and testing prompts that instruct model |   |
-| **Data requirements** | Training and validation dataset (potentially large dataset necessary) | Training and validation dataset     | Just validation dataset                           |   |
-| **Data requirements** | Training and validation dataset (potentially large dataset necessary) | Training and validation dataset     | Just validation dataset                           |   |
+## What are LLMs? Some analogies
+
+- Emily Bender et al.: Stochastic parrots
+- Ted Chiang: "ChatGPT is a Blurry JPEG of the Web"
+- Simon Willison: "Calculators for words"
+
+Sources: Bender et al. "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big", Ted Chiang in [New Yorker](https://www.newyorker.com/tech/annals-of-technology/chatgpt-is-a-blurry-jpeg-of-the-web), [Simon Willison](https://simonwillison.net/2023/Apr/2/calculator-for-words/)
+
+---
+
+## Context: Hate speech detection as an industry
+
+- Large social media platforms leaders in development of new LLMs
+- "Safety Tech" also a nascent commercial industry
+- Hate speech detection is evaluated in terms of accuracy, and definition of hate speech taken as a given
 
 <!--
-Not black and white, but with supervised text cat, we are working with LLMs where we just feed in the data
-With Zero-shot, we have LLMs that read instructions, that may include data
+Could talk about Gillespie here and how hate speech detection is an existential question for platforms
 -->
+
+---
+
+## Challenges in hate speech detection
+
+- Bias in training data, for instance minority slang more often labelled as hate speech
+- Low inter-coder reliability in coding
+- "Hate speech" definition varies, and research often adopts context-specific notions (eg. extreme speech, othering speech)
+- Challenges of working with LLMs: Most powerful models closed and proprietary, ethics of sourcing of training data...
+
+---
+
+## Some of my own research
+
+![[Pasted image 20230830123704.png]]
 
 ---
 
@@ -173,7 +112,10 @@ With Zero-shot, we have LLMs that read instructions, that may include data
 ![[Pasted image 20230823154547.png]]
 
 <!--
-- Task at hand: 
+Hateful speech operationalised:
+- List of slurs
+- Is slur used in abusive or threatening way?
+Problematic, but quite transparent
 -->
 
 ---
@@ -185,21 +127,6 @@ With Zero-shot, we have LLMs that read instructions, that may include data
 <!--
 Training set, your source of examples, that the machine will use to replicate the same form of categorisation on a larger corpus
 Programming by example
--->
-
----
-
-## Finetuning an LLM for text classification
-
-![[Pasted image 20230823215930.png]]
-
-Finetuning is a process where an pre-trained model goes through a smaller training process to perform a specific task.
-
-<!--
-Here, this is a slightly awkward graph, but it's to describe the 
-you've got two neural networks.
-Data comes from the bottom, and then its processed one layer in the neural network after another.
-In finetuning for classification, we add this output layer, to perform.
 -->
 
 ---
@@ -232,11 +159,9 @@ finetuned_finbert = pipeline(
 
 Source: https://github.com/AleksiKnuutila/nethate_classifier/blob/master/train.py
 
----
-
-## Categorisation results
-
-![[Pasted image 20230824091656.png]]
+<!--
+Like boilerplate code
+-->
 
 ---
 
@@ -246,9 +171,15 @@ Source: https://github.com/AleksiKnuutila/nethate_classifier/blob/master/train.p
 
 ---
 
-## Examining how the model works
+## Validating analysis requires people
 
-![](https://lh6.googleusercontent.com/V3wgxHSkxcygNlCdtcZ83k2b7H_f-Yogj0qPeFck2Gg7q9nKFcqTzNicH3tXy4AU6Q9jG4YPSSDyDujd-7FrSFKV28JGEAhIpzdKB16k8_BD5xHc1vRjwLsmMiqMuTD026yW2I91GJo7Z3xJtEppx_j0=s2048)
+- Core challenge for analysis is finding analytical concepts that
+1. Provide analytical value, i.e. reveal something insightful about data
+2. Are clear enough so that multiple people will agree on them
+3. Can be operationalised so that models such as LLMs can apply them
+
+- Agreement between people is proxy for validity of concepts - for some research, codebook verified before modelling
+- Finding right concepts may require many attempts, and LLMs may make iterative process easier
 
 ---
 
@@ -355,17 +286,6 @@ say no, since yesterday is not actually described. So, an hour to 90 minutes.
 
 ---
 
-## General challenges of working with LLMs
-
-- Most recent powerful models closed, proprietary, opaque
-- Proprietary models make research hard to reproduce
-- Industry influence, centralisation (GPT-4 cost 100 million to train)
-- Difficult to interpret (though models can be prompted to explain themselves)
-- Sensitive data cannot be analysed with cloud services
-- Ethics of models, eg. sourcing of their training data
-
----
-
 ## LLMs might help scientists to focus on data
 
 ![[Pasted image 20230822152758.png]]
@@ -386,8 +306,16 @@ Source: Tracy, "A Phronetic Iterative Approach to Data Analysis in Qualitative R
 
 ---
 
-# Thanks! Any questions?
+## Conclusions
+
+- There is some hope that LLMs will reduce technical expertise required to work with large datasets
+- This will come at cost of new dependencies, ethical issues, changing workflows
+- The challenge of finding the right analytical concepts will remain, particularly when working on topics like hate speech
 
 ---
 
-# Let's try to access CSC notebooks
+## Thanks! Any questions?
+
+aleksi.knuutila@helsinki.fi
+
+http://knuutila.net/methodfest2023
