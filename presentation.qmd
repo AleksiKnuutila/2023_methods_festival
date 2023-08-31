@@ -13,7 +13,7 @@ author:
     affiliations: JYU, HY
 date: last-modified
 bibliography: refs.bib
-slide_link: http://knuutila.net/methodsfest2023
+slide_link: http://knuutila.net/mf2023
 ---
 ## A bit about me
 
@@ -90,40 +90,54 @@ Source: Luccioni, Alexandra Sasha, and Anna Rogers. “Mind Your Language (Model
 - Creates other challenges - dependency on companies that pretrain models, ethical dilemmas
 :::
 
-
 # Challenges in hate speech research {background-color="#40666e"}
 
 ## Challenges in hate speech detection
 ### Creating your dataset
 
-- "Hate speech" definitions vary, and research often adopts context-specific notions (eg. extreme speech, harmful speech, othering speech, nethate)
+- "Hate speech" definitions vary, and researchers often adopt context-specific concepts (eg. extreme speech, harmful speech, othering speech, nethate)
+- Low inter-coder reliability in coding (eg. about 70% on HASOC)
 - Bias in training data, for instance minority slang more often labelled as hate speech
-- Low inter-coder reliability in coding
 
 ::: {.notes}
-- Common pattern: 
-- 
-- Language models are decent at many things - standardisation in the modelling phase of research
-- Creates other challenges - dependency on companies that pretrain models, ethical dilemmas
+- Common pattern: research expresses an interest in hate speech, and then posits analytically tractable concepts
+- This is probably true for many phenomena, but no wide consensus on analytical concepts in field of hate speech
+- Even good analytical concepts might not mean that people apply them in the same way - for instance in labelling tasks
 :::
-
 
 ## Challenges in hate speech detection
 ### Models won't replace human readers
 
-- Core challenge for analysis is finding analytical concepts that
+- Core challenge is finding analytical concepts that
   1. Provide analytical value, i.e. reveal something insightful about data
-  2. Are clear enough so that multiple people will agree on them
-  3. Can be operationalised so that models such as LLMs can apply them
+  2. Are clear enough so that several readers agree on how to apply them
+  3. Can be operationalised with models such as LLMs
 
 - Agreement between people is proxy for validity of concepts
-- Finding right concepts may require many attempts, and LLMs may make iterative process easier
+- Finding right concepts may require many attempts 
+    - LLMs may make iterative process easier
+
+::: {.notes}
+- So in this type of research, where you apply categories on a large dataset, these are generally the 3 requirements you have for analytical concepts
+- Tell you something interesting, people will agree on them, and then models can actually replicate the taxonomy
+- No matter how technically advanced your model is, you still need the human readers
+- Not everyone agrees, but its quite common to see this
+- And anyone who has measured inter-coder reliability knows its not easy
+- May take several tries
+- And one potential of LLMs is that the cost of modelling will decrease, and so iterative experimentation of does this concept work with the model? what do the results look like with this concept? that becomes easier
+:::
 
 # Two concrete examples  {background-color="#40666e"}
 
-##  Research of my own
+## Research with Cabinet office
 
 ![](Pasted image 20230830123704.png)
+
+::: {.notes}
+- Some collaborations with people in the panel
+- Two projects funded by Cabinet office
+- Research questions such as: which politicians receive abuse on social media, that require this kind of 
+:::
 
 ---
 
@@ -131,13 +145,15 @@ Source: Luccioni, Alexandra Sasha, and Anna Rogers. “Mind Your Language (Model
 
 ![](Pasted image 20230823154547.png)
 
-- Definition:
-  1. Contains slur from pre-defined list
-  2. Slur used in abusive or threatening way
+**hateful speech**: Messages that 
 
-<!--
-Problematic, but quite transparent
--->
+  1. Contains slur from pre-defined list
+  2. Use slurs used in abusive or threatening way
+  
+::: {.notes}
+- Problematic, rather static using a predefined word list
+- For public-facing project, there's value having rather clear definition, and focusing on messages that are quite unambiguously wrong
+:::
 
 ---
 
@@ -169,6 +185,13 @@ finetuned_finbert = pipeline(
 
 Goal: A "boring", boilerplate model
 
+::: {.notes}
+- So this is Python code for finetuning a language model
+- This might seem complex, but default, few parameters changed
+- I thought for this work, it's appropriate to have an almost "boring" model
+- Embodies the idea that the value is created through labour on the dataset and finding the right analytical angles, not through some technical aspects of the AI
+:::
+
 ::: {style="font-size: 50%;"}
 Source: https://github.com/AleksiKnuutila/nethate_classifier/
 ::: 
@@ -188,6 +211,12 @@ The interesting stuff isn't happening here
 ::: {style="font-size: 50%;"}
 Source: Pangakis et al. "Automated Annotation with Generative AI Requires Validation"
 ::: 
+
+::: {.notes}
+- And very briefly, there's a way to use language models that is kind of nascent, some scientists have used it, but not clear what the limits are
+- Zero-shot: You don't need a training set to direct your model, but instead you can instruct it how to do categorisation, potentially with examples
+- Potential for kind of quick experiments
+:::
 
 ---
 
@@ -250,9 +279,10 @@ In the future, a way to pilot analysis with natural language prompts?
 :::: {.columns}
 
 ::: {.column width="50%"}
-- There is some hope that LLMs will reduce technical expertise required to work with large datasets
-- This will come at cost of new dependencies, ethical issues, changing workflows
-- The challenge of finding the right analytical concepts will remain, particularly when working on topics like hate speech
+- Challenge of finding right analytical concepts particularly prevalent in hate speech research
+- Previously the high cost of modelling meant concept development done on subset of data, before modelling
+- LLMs may reduce cost of modelling and make it easier to iteratively read large datasets with novel concepts
+- LLMs introduce their own ethical issues and dependencies
 :::
 
 ::: {.column width="50%" style="font-size: 50%;"}
@@ -264,8 +294,19 @@ Source: Tracy, "A Phronetic Iterative Approach to Data Analysis in Qualitative R
 ::::
 
 
+::: {.notes}
+Bringing it together
+Finding the right concepts is hard
+Language models don't do this work for you, but they might provide new workflows for large datasets
+Previously research often in consecutive phases, first you agree on concepts, then you create the model
+The modelling is so costly that you can't repeat it
+Ideally you might try out whether the model can repeat your taxonomy, and see what kind of insights are gained
+And repeat this process
+Visualised, Tracy, phronetic approach, hermeneutic circle, defined in contrast with grounded theory..
+:::
+
 ## Thanks! Questions and feedback appreciated {background-color="#40666e"}
 
 aleksi.knuutila@helsinki.fi
 
-<http://knuutila.net/methodfest2023>
+<http://knuutila.net/mf2023>
