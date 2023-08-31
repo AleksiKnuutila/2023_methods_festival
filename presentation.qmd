@@ -6,28 +6,35 @@ format:
     self-contained: true
     template-partials:
       - title-slide.html
-date: last-modified
-bibliography: refs.bib
-slide_link: http://knuutila.net/methodsfest2023
 author:
   - name: Aleksi Knuutila
     orcid: 0000-0002-9874-0079
     email: aleksi.knuutila@helsinki.fi
     affiliations: JYU, HY
+date: last-modified
+bibliography: refs.bib
+slide_link: http://knuutila.net/methodsfest2023
 ---
-
 ## A bit about me
 
 - University researcher in Helsinki (Sociology) and Jyväskylä (Culture studies)
 - Working on information environment in Ukraine, hate speech in Finland
 - Interested in critical and creative use of machine learning in social sciences
 
+::: {.notes}
+- I've worked on hate speech for a few years now, collaborating with many people in this panel also
+:::
 ## Structure of presentation
 
 1. What are large language models ("LLMs")
 2. Challenges in hate speech research
 3. Examples of my own research and novel uses of LLMs
 4. Concluding summary
+
+::: {.notes}
+- Teaching on LLMs, tried to connect it hate speech
+- Research approach, based on categorisation of large datasetss
+:::
 
 # What are large language models (LLMs) {background-color="#40666e"}
 
@@ -37,19 +44,30 @@ author:
 ![](Untitled design.png)
 
 - Google Bert, 2017
-- ChatGPT, 2022
-- Llama-2, 2023
+- OpenAI's ChatGPT, 2022
+- Meta's Llama-2, 2023
+
+::: {.notes}
+- ChatGPT first language model that became consumer technology
+- 
+:::
 
 ## What are large language models (LLMs)
-### Definitions
 
 ![](Pasted image 20230825094408.png)
+
+### Definitions
  
 - LLMs model text and can be used to generate it
 - LLMs receive large-scale **pretraining**
 - LLMs make inferences based on **transfer learning**
 
+::: {style="font-size: 50%;"}
+
 Source: Luccioni, Alexandra Sasha, and Anna Rogers. “Mind Your Language (Model): Fact-Checking LLMs and Their Role in NLP Research and Practice.”
+
+:::
+
 
 ## What are large language models (LLMs)
 ### A change in researcher workflow
@@ -62,30 +80,17 @@ Source: Luccioni, Alexandra Sasha, and Anna Rogers. “Mind Your Language (Model
 - Pre-training reduces data requirements
 - LLMs are like *swiss army knives* - a potential simplification in required expertise
 
-<!--
-| **Data requirements** | Training and validation dataset (potentially large dataset necessary) | Training and validation dataset          |
--->
-
 # Challenges in hate speech research {background-color="#40666e"}
 
-### Context: Hate speech detection industry
-
-- Google, Meta, Microsoft: Large tech companies leaders in development of new LLMs
-- "Safety Tech" also a nascent commercial industry
-- Hate speech detection is evaluated in terms of accuracy, and definition of hate speech taken as a given
-
-<!--
-Could talk about Gillespie here and how hate speech detection is an existential question for platforms
--->
 ## Challenges in hate speech detection
-### 
+### Creating your dataset
 
 - "Hate speech" definitions vary, and research often adopts context-specific notions (eg. extreme speech, harmful speech, othering speech)
 - Bias in training data, for instance minority slang more often labelled as hate speech
 - Low inter-coder reliability in coding
 
 ## Challenges in hate speech detection
-### 
+### General challenges
 
 - Core challenge for analysis is finding analytical concepts that
 1. Provide analytical value, i.e. reveal something insightful about data
@@ -95,17 +100,17 @@ Could talk about Gillespie here and how hate speech detection is an existential 
 - Agreement between people is proxy for validity of concepts - for some research, codebook verified before modelling
 - Finding right concepts may require many attempts, and LLMs may make iterative process easier
 
-# Examples from existing research
+# Two concrete examples  {background-color="#40666e"}
 
-## Some of my own research
+##  Research of my own
 
-![[Pasted image 20230830123704.png]]
+![](Pasted image 20230830123704.png)
 
 ---
 
-## Example of supervised text categorisation
+## Definition of "hateful speech"
 
-![[Pasted image 20230823154547.png]]
+![](Pasted image 20230823154547.png)
 
 - Definition:
   1. Contains slur from pre-defined list
@@ -143,7 +148,9 @@ finetuned_finbert = pipeline(
 )
 ```
 
-Source: https://github.com/AleksiKnuutila/nethate_classifier/blob/master/train.py
+A simple "boilerplate" model
+
+Source: https://github.com/AleksiKnuutila/nethate_classifier/
 
 <!--
 Very simple and stupid, obvious, reproducible
@@ -151,13 +158,6 @@ Boilerplate
 The interesting stuff isn't happening here
 -->
 
----
-
-## Evaluating the performance of the classification
-
-![[Pasted image 20230824091245.png]]
-
----
 ## An alternative workflow: zero-shot annotation
 
 - Can be done with LLMs that are trained to be directed with prompts
@@ -171,7 +171,7 @@ Source: Pangakis et al. "Automated Annotation with Generative AI Requires Valida
 
 ## Example of zero-shot annotation
 
-![[Pasted image 20230824094514.png]]
+![](Pasted image 20230824094514.png)
 
 An example of annotating text: Assessing the amount of time passing in literary passages.
 
@@ -184,6 +184,7 @@ Literary-critical tradition suggested that there had been a pretty stable balanc
 ---
 
 ## Prompting GPT-4 to read fiction
+### In the future, a way to pilot analysis with natural language prompts?
 
 ```
 Read the following passage of fiction. Then do five things.
@@ -195,11 +196,13 @@ time the events described would have taken.
 The passage follows: ...
 ```
 
+
 Source: https://tedunderwood.com/2023/03/19/using-gpt-4-to-measure-the-passage-of-time-in-fiction/
 
 ---
 
-## Results
+## Prompting GPT-4 to read fiction
+### Results
 
 ```
 Making coffee, showering, and getting dressed take at least an hour. There's 
@@ -208,35 +211,11 @@ some ambiguity about whether to count the implicit reference to yesterday
 say no, since yesterday is not actually described. So, an hour to 90 minutes.
 ```
 
----
-
-## Findings
-
-![[Pasted image 20230825100706.png]]
-"Watching the model think out loud about each passage actually gave me a better sense of how results were produced than I could extract from my own records of human research in 2017."
-
-<!--
-
-## Thematic analysis with LLMs?
-
-- XXX
-- Possible source: https://arxiv.org/pdf/2305.13014.pdf
-- Possible source: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4487768
-
--->
-
-<!--
-## Simple guidelines for "prompt engineering"
-
-- Giving examples
-- Providing persona
-- Trying to get machine-readable output can be a challenge
--->
-
 # Conclusions (LLMs) {background-color="#40666e"}
 
 ---
 ## Conclusions
+
 
 :::: {.columns}
 
@@ -255,7 +234,7 @@ Source: Tracy, "A Phronetic Iterative Approach to Data Analysis in Qualitative R
 ::::
 
 
-## Thanks! Questions and feedback appreciated
+## Thanks! Questions and feedback appreciated {background-color="#40666e"}
 
 aleksi.knuutila@helsinki.fi
 
