@@ -23,7 +23,9 @@ slide_link: http://knuutila.net/mf2023
 
 ::: {.notes}
 - I've worked on hate speech for a few years now, collaborating with many people in this panel also
+- Research approach, based on content analysis, categorisation of large datasets, often from social media
 :::
+
 ## Structure of presentation
 
 1. What are large language models ("LLMs")
@@ -33,7 +35,6 @@ slide_link: http://knuutila.net/mf2023
 
 ::: {.notes}
 - Teaching on LLMs, tried to connect it hate speech
-- Research approach, based on categorisation of large datasets
 :::
 
 # What are large language models (LLMs) {background-color="#40666e"}
@@ -77,12 +78,14 @@ Source: Luccioni, Alexandra Sasha, and Anna Rogers. “Mind Your Language (Model
 
 |                       | Training your own model                                               | Text analysis with LLMs |
 |-----------------------|-----------------------------------------------------------------------|------------------------------------------|
-| **Models used**       | Researcher experiments with a range of model types specific to the task | Choosing a pre-trained LLM which may work on several tasks 
-| **Preparing model**   | Training model exclusively on your data | Model has been pre-trained on large corpus, finetune on your own data                  |
+| **Models used**       | Choosing a model specific to a task | Choosing a pre-trained LLM which may work on several tasks 
+| **Preparing model**   | Training model exclusively on your data | Finetune pre-trained on your data                  |
 : {tbl-colwidths="[20,40,40]"}
 
+::: {style="font-size: 75%;"}
 - LLMs are like *swiss army knives*, a decent solution for many tasks
 - A potential simplification in expertise required for modeling - but at a cost!
+::: 
 
 ::: {.notes}
 - Typically, when working with large datasets, a researcher would have to find a specific model
