@@ -33,7 +33,7 @@ slide_link: http://knuutila.net/methodsfest2023
 
 ::: {.notes}
 - Teaching on LLMs, tried to connect it hate speech
-- Research approach, based on categorisation of large datasetss
+- Research approach, based on categorisation of large datasets
 :::
 
 # What are large language models (LLMs) {background-color="#40666e"}
@@ -49,7 +49,7 @@ slide_link: http://knuutila.net/methodsfest2023
 
 ::: {.notes}
 - ChatGPT first language model that became consumer technology
-- 
+- Open source ones
 :::
 
 ## What are large language models (LLMs)
@@ -63,9 +63,12 @@ slide_link: http://knuutila.net/methodsfest2023
 - LLMs make inferences based on **transfer learning**
 
 ::: {style="font-size: 50%;"}
-
 Source: Luccioni, Alexandra Sasha, and Anna Rogers. “Mind Your Language (Model): Fact-Checking LLMs and Their Role in NLP Research and Practice.”
+:::
 
+::: {.notes}
+- Pre-training: Large organisations
+- They are good on a wide variety of tasks, categorisation, extracting entities
 :::
 
 
@@ -76,28 +79,44 @@ Source: Luccioni, Alexandra Sasha, and Anna Rogers. “Mind Your Language (Model
 |-----------------------|-----------------------------------------------------------------------|------------------------------------------|
 | **Models used**       | Researcher experiments with a range of model types specific to the task | Choosing a pre-trained LLM which may work on several tasks 
 | **Preparing model**   | Training model exclusively on your data | Model has been pre-trained on large corpus, finetune on your own data                  |
+: {tbl-colwidths="[20,40,40]"}
 
-- Pre-training reduces data requirements
-- LLMs are like *swiss army knives* - a potential simplification in required expertise
+- LLMs are like *swiss army knives*, a decent solution for many tasks
+- A potential simplification in expertise required for modeling - but at a cost!
+
+::: {.notes}
+- Typically, when working with large datasets, a researcher would have to find a specific model
+- Language models are decent at many things - standardisation in the modelling phase of research
+- Creates other challenges - dependency on companies that pretrain models, ethical dilemmas
+:::
+
 
 # Challenges in hate speech research {background-color="#40666e"}
 
 ## Challenges in hate speech detection
 ### Creating your dataset
 
-- "Hate speech" definitions vary, and research often adopts context-specific notions (eg. extreme speech, harmful speech, othering speech)
+- "Hate speech" definitions vary, and research often adopts context-specific notions (eg. extreme speech, harmful speech, othering speech, nethate)
 - Bias in training data, for instance minority slang more often labelled as hate speech
 - Low inter-coder reliability in coding
 
+::: {.notes}
+- Common pattern: 
+- 
+- Language models are decent at many things - standardisation in the modelling phase of research
+- Creates other challenges - dependency on companies that pretrain models, ethical dilemmas
+:::
+
+
 ## Challenges in hate speech detection
-### General challenges
+### Models won't replace human readers
 
 - Core challenge for analysis is finding analytical concepts that
-1. Provide analytical value, i.e. reveal something insightful about data
-2. Are clear enough so that multiple people will agree on them
-3. Can be operationalised so that models such as LLMs can apply them
+  1. Provide analytical value, i.e. reveal something insightful about data
+  2. Are clear enough so that multiple people will agree on them
+  3. Can be operationalised so that models such as LLMs can apply them
 
-- Agreement between people is proxy for validity of concepts - for some research, codebook verified before modelling
+- Agreement between people is proxy for validity of concepts
 - Finding right concepts may require many attempts, and LLMs may make iterative process easier
 
 # Two concrete examples  {background-color="#40666e"}
@@ -148,9 +167,11 @@ finetuned_finbert = pipeline(
 )
 ```
 
-A simple "boilerplate" model
+Goal: A "boring", boilerplate model
 
+::: {style="font-size: 50%;"}
 Source: https://github.com/AleksiKnuutila/nethate_classifier/
+::: 
 
 <!--
 Very simple and stupid, obvious, reproducible
@@ -162,10 +183,11 @@ The interesting stuff isn't happening here
 
 - Can be done with LLMs that are trained to be directed with prompts
 - Zero-shot: When the model is asked to perform a task that it hasn't specifically been trained on, i.e. to apply new categories that are described to it
-- Few-shot: When the model is provided with a limited number of examples for its task
-- Results tend to be worse than with finetuned models
+- Results tend to be worse, but perhaps good enough for experimenting with concepts?
 
+::: {style="font-size: 50%;"}
 Source: Pangakis et al. "Automated Annotation with Generative AI Requires Validation"
+::: 
 
 ---
 
@@ -175,7 +197,9 @@ Source: Pangakis et al. "Automated Annotation with Generative AI Requires Valida
 
 An example of annotating text: Assessing the amount of time passing in literary passages.
 
+::: {style="font-size: 50%;"}
 Source: Underwood, "Why Literary Time is Measured in Minutes"
+::: 
 
 <!--
 Literary-critical tradition suggested that there had been a pretty stable balance between “scene” (minute-by-minute description) and “summary” (which may cover weeks or years) until modernists started to leave out the summary and make every page breathlessly immediate
@@ -184,20 +208,24 @@ Literary-critical tradition suggested that there had been a pretty stable balanc
 ---
 
 ## Prompting GPT-4 to read fiction
-### In the future, a way to pilot analysis with natural language prompts?
+### Instructions in natural language
 
 ```
 Read the following passage of fiction. Then do five things.
  
-Reason step by step to decide how much time is described in the passage. If the
+1. Reason step by step to decide how much time is described in the passage. If the
 passage doesn't include any explicit reference to time, you can guess how much 
 time the events described would have taken.
+
+2. ...
 
 The passage follows: ...
 ```
 
 
+::: {style="font-size: 50%;"}
 Source: https://tedunderwood.com/2023/03/19/using-gpt-4-to-measure-the-passage-of-time-in-fiction/
+::: 
 
 ---
 
@@ -211,7 +239,9 @@ some ambiguity about whether to count the implicit reference to yesterday
 say no, since yesterday is not actually described. So, an hour to 90 minutes.
 ```
 
-# Conclusions (LLMs) {background-color="#40666e"}
+In the future, a way to pilot analysis with natural language prompts?
+
+# Summary and conclusions {background-color="#40666e"}
 
 ---
 ## Conclusions
@@ -225,7 +255,7 @@ say no, since yesterday is not actually described. So, an hour to 90 minutes.
 - The challenge of finding the right analytical concepts will remain, particularly when working on topics like hate speech
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" style="font-size: 50%;"}
 ![](Pasted image 20230824121403.png)
 
 Source: Tracy, "A Phronetic Iterative Approach to Data Analysis in Qualitative Research"
@@ -238,4 +268,4 @@ Source: Tracy, "A Phronetic Iterative Approach to Data Analysis in Qualitative R
 
 aleksi.knuutila@helsinki.fi
 
-http://knuutila.net/methodfest2023
+<http://knuutila.net/methodfest2023>
